@@ -1,7 +1,9 @@
 Stouts.timezone
 ===============
 
-[![Build Status](https://travis-ci.org/Stouts/Stouts.timezone.png)](https://travis-ci.org/Stouts/Stouts.timezone)
+[![Build Status](http://img.shields.io/travis/Stouts/Stouts.timezone.svg?style=flat-square)](https://travis-ci.org/Stouts/Stouts.timezone)
+[![Galaxy](http://img.shields.io/badge/galaxy-Stouts.timezone-blue.svg?style=flat-square)](https://galaxy.timezone.com/list#/roles/909)
+[![Tag](http://img.shields.io/github/tag/Stouts/Stouts.timezone.svg?style=flat-square)]()
 
 Ansible role which manage timezone (debian)
 
