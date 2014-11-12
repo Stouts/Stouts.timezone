@@ -1,6 +1,14 @@
 ---
 
-- name: Symlink the correct localtime - pt.1 (/etc/localtime)
+- name: Make sure tzdata is installed
+  apt: name=tzdata
+  when: ansible_os_family == 'Debian'
+
+- name: Make sure tzdata is installed
+  yum: name=tzdata
+  when: ansible_os_family == 'RedHat'
+
+- name: Symlink the correct localtime (/etc/localtime)
   file:
     src: /usr/share/zoneinfo/{{timezone_timezone}}
     dest: /etc/localtime
@@ -9,10 +17,9 @@
     owner: root
     group: root
     mode: 0644
-
-- name: Make sure tzdata is installed
-  apt: pkg=tzdata
+  register: timezone_linked
 
 - name: Set timezone
   template: dest=/etc/timezone src=timezone.j2
-  notify: timezone update
+  notify: timezone deb_update
+  when: ansible_os_family == 'Debian'
