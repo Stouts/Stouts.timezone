@@ -1,10 +1,10 @@
 ---
 
-- name: Make sure tzdata is installed
+- name: Make sure tzdata is installed (Debian)
   apt: name=tzdata
   when: ansible_os_family == 'Debian'
 
-- name: Make sure tzdata is installed
+- name: Make sure tzdata is installed (RedHat)
   yum: name=tzdata
   when: ansible_os_family == 'RedHat'
 
