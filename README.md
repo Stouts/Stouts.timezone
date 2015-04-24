@@ -31,6 +31,25 @@ Example:
 
 ```
 
+If you have services that must be restarted in order to pick up the
+new timezone, add them to the `timezone_dependent_services` list.
+They will be restarted with the
+[service](http://docs.ansible.com/service_module.html) module.
+
+Example:
+
+```yaml
+
+- hosts: all
+
+  roles:
+    - Stouts.timezone
+
+  vars:
+    timezone_timezone: Europe/Moscow
+    timezone_dependent_services: [rsyslog, apache2, sendmail]
+```
+
 #### License
 
 Licensed under the MIT License. See the LICENSE file for details.
@@ -38,4 +57,3 @@ Licensed under the MIT License. See the LICENSE file for details.
 #### Feedback, bug-reports, requests, ...
 
 Are [welcome](https://github.com/Stouts/Stouts.timezone/issues)!
-
